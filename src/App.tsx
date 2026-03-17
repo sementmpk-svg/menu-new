@@ -35,21 +35,39 @@ const T = {
 };
 
 // ===================== MENÚ =====================
-// ── Reemplazá con el menú real del cliente ──
 const MENU = [
-  { categoria:"Especiales", nombre:"Plato especial del día", descripcion:"Consultá con el mozo", precio:1500, disponible:true, emoji:"⭐", promo:true, t:{ en:["Daily special","Ask the waiter"], pt:["Prato especial do dia","Pergunte ao garçom"], it:["Piatto speciale del giorno","Chiedi al cameriere"], fr:["Plat du jour","Demandez au serveur"], ru:["Блюдо дня","Спросите официанта"] } },
-  { categoria:"Entradas", nombre:"Entrada de la casa", descripcion:"Preparación del chef", precio:800, disponible:true, emoji:"🥗", t:{ en:["House starter","Chef's preparation"], pt:["Entrada da casa","Preparação do chef"], it:["Antipasto della casa","Preparazione dello chef"], fr:["Entrée maison","Préparation du chef"], ru:["Фирменная закуска","Приготовление шефа"] } },
-  { categoria:"Principales", nombre:"Plato principal", descripcion:"Con guarnición incluida", precio:2200, disponible:true, emoji:"🍽️", t:{ en:["Main course","With side dish included"], pt:["Prato principal","Com acompanhamento incluído"], it:["Piatto principale","Con contorno incluso"], fr:["Plat principal","Avec accompagnement inclus"], ru:["Основное блюдо","С гарниром"] } },
-  { categoria:"Bebidas", nombre:"Agua mineral", descripcion:"", precio:400, disponible:true, emoji:"💧", t:{ en:["Mineral water",""], pt:["Água mineral",""], it:["Acqua minerale",""], fr:["Eau minérale",""], ru:["Минеральная вода",""] } },
-  { categoria:"Bebidas", nombre:"Vino de la casa", descripcion:"Tinto o blanco", precio:900, disponible:true, emoji:"🍷", t:{ en:["House wine","Red or white"], pt:["Vinho da casa","Tinto ou branco"], it:["Vino della casa","Rosso o bianco"], fr:["Vin maison","Rouge ou blanc"], ru:["Вино дня","Красное или белое"] } },
+  // ── CAFETERÍA ──
+  { categoria:"Cafetería", nombre:"Café americano", descripcion:"Café suave, largo", precio:4000, disponible:true, emoji:"☕", t:{ en:["Americano","Mild, long coffee"], pt:["Café americano","Café suave, longo"], it:["Caffè americano","Caffè leggero, lungo"], fr:["Café américain","Café doux, long"], ru:["Американо","Мягкий кофе"] } },
+  { categoria:"Cafetería", nombre:"Cappuccino Frozen", descripcion:"Espresso, helado de crema, chocolate y canela", precio:7500, disponible:true, emoji:"🥤", t:{ en:["Frozen Cappuccino","Espresso, ice cream, chocolate and cinnamon"], pt:["Cappuccino Frozen","Espresso, sorvete, chocolate e canela"], it:["Cappuccino Frozen","Espresso, gelato, cioccolato e cannella"], fr:["Cappuccino Glacé","Expresso, glace, chocolat et cannelle"], ru:["Фрозен Капучино","Эспрессо, мороженое, шоколад и корица"] } },
+
+  // ── DESAYUNOS Y MERIENDAS ──
+  { categoria:"Desayunos", nombre:"Combo 1", descripcion:"Café americano + 2 medialunas ó 2 Donayakis ó budín del día", precio:8000, disponible:true, emoji:"🥐", promo:true, t:{ en:["Combo 1","Americano + 2 croissants or 2 Donayakis or daily muffin"], pt:["Combo 1","Café americano + 2 croissants ou 2 Donayakis ou bolinho do dia"], it:["Combo 1","Caffè americano + 2 cornetti o 2 Donayakis o muffin del giorno"], fr:["Combo 1","Café américain + 2 croissants ou 2 Donayakis ou muffin du jour"], ru:["Комбо 1","Американо + 2 круассана или 2 Донаяки или кекс дня"] } },
+  { categoria:"Desayunos", nombre:"Combo 6", descripcion:"Café con leche + Tostado de jamón y queso en pan árabe integral", precio:16000, disponible:true, emoji:"🍞", promo:true, t:{ en:["Combo 6","White coffee + Ham & cheese toast on whole wheat pita"], pt:["Combo 6","Café com leite + Tostado de presunto e queijo no pão árabe integral"], it:["Combo 6","Caffè con latte + Toast di prosciutto e formaggio su pane arabo integrale"], fr:["Combo 6","Café au lait + Toast jambon-fromage sur pain pita complet"], ru:["Комбо 6","Кофе с молоком + Тост с ветчиной и сыром на цельнозерновой лепёшке"] } },
+
+  // ── ENSALADAS ──
+  { categoria:"Ensaladas", nombre:"Caesar Salad con palta", descripcion:"Hojas verdes, parmesano, pollo, palta y aderezo Caesar", precio:20000, disponible:true, emoji:"🥗", t:{ en:["Caesar Salad with avocado","Mixed greens, parmesan, chicken, avocado and Caesar dressing"], pt:["Salada Caesar com abacate","Folhas verdes, parmesão, frango, abacate e molho Caesar"], it:["Caesar Salad con avocado","Insalata mista, parmigiano, pollo, avocado e salsa Caesar"], fr:["Salade César à l'avocat","Feuilles vertes, parmesan, poulet, avocat et sauce César"], ru:["Салат Цезарь с авокадо","Листья салата, пармезан, курица, авокадо и соус Цезарь"] } },
+  { categoria:"Ensaladas", nombre:"Mediterránea", descripcion:"Hojas de espinaca y rúcula, queso parmesano, olivas, tomate, jamón crudo, peras caramelizadas", precio:20000, disponible:true, emoji:"🫒", t:{ en:["Mediterranean","Spinach & arugula, parmesan, olives, tomato, prosciutto, caramelized pears"], pt:["Mediterrânea","Espinafre e rúcula, parmesão, azeitonas, tomate, presunto cru, peras caramelizadas"], it:["Mediterranea","Spinaci e rucola, parmigiano, olive, pomodoro, prosciutto crudo, pere caramellate"], fr:["Méditerranéenne","Épinards et roquette, parmesan, olives, tomate, jambon cru, poires caramélisées"], ru:["Средиземноморский","Шпинат и руккола, пармезан, оливки, томат, прошутто, карамельные груши"] } },
+
+  // ── SANDWICHES ──
+  { categoria:"Sandwiches", nombre:"Tostado integral", descripcion:"Jamón y queso en pan árabe integral", precio:13500, disponible:true, emoji:"🥪", t:{ en:["Whole wheat toast","Ham and cheese on whole wheat pita bread"], pt:["Tostado integral","Presunto e queijo no pão árabe integral"], it:["Toast integrale","Prosciutto e formaggio su pane arabo integrale"], fr:["Toast complet","Jambon et fromage sur pain pita complet"], ru:["Цельнозерновой тост","Ветчина и сыр на цельнозерновой лепёшке"] } },
+  { categoria:"Sandwiches", nombre:"Egg Sandwich", descripcion:"Huevos revueltos, queso, palta, panceta crispy, en pan de remolacha", precio:15000, disponible:true, emoji:"🍳", t:{ en:["Egg Sandwich","Scrambled eggs, cheese, avocado, crispy bacon on beetroot bread"], pt:["Sanduíche de Ovo","Ovos mexidos, queijo, abacate, bacon crocante, no pão de beterraba"], it:["Egg Sandwich","Uova strapazzate, formaggio, avocado, pancetta croccante su pane alla barbabietola"], fr:["Sandwich aux Œufs","Œufs brouillés, fromage, avocat, bacon croustillant sur pain à la betterave"], ru:["Сэндвич с яйцом","Яичница, сыр, авокадо, хрустящий бекон на свекольном хлебе"] } },
+
+  // ── PIZZAS INTEGRALES ──
+  { categoria:"Pizzas", nombre:"Caprese", descripcion:"Mozzarella, albahaca, tomate y olivas", precio:23000, disponible:true, emoji:"🍕", t:{ en:["Caprese","Mozzarella, basil, tomato and olives"], pt:["Caprese","Mozzarella, manjericão, tomate e azeitonas"], it:["Caprese","Mozzarella, basilico, pomodoro e olive"], fr:["Caprese","Mozzarella, basilic, tomate et olives"], ru:["Капрезе","Моцарелла, базилик, томат и оливки"] } },
+  { categoria:"Pizzas", nombre:"Mediterránea", descripcion:"Mozzarella, rúcula y jamón crudo", precio:26000, disponible:true, emoji:"🍕", t:{ en:["Mediterranean","Mozzarella, arugula and prosciutto"], pt:["Mediterrânea","Mozzarella, rúcula e presunto cru"], it:["Mediterranea","Mozzarella, rucola e prosciutto crudo"], fr:["Méditerranéenne","Mozzarella, roquette et jambon cru"], ru:["Средиземноморская","Моцарелла, руккола и прошутто"] } },
+
+  // ── PATTISERIE & DULCES ──
+  { categoria:"Pattiserie", nombre:"Cinnamon Roll Classic", descripcion:"Con frosting de cream cheese y almendras", precio:6500, disponible:true, emoji:"🥐", t:{ en:["Classic Cinnamon Roll","With cream cheese frosting and almonds"], pt:["Cinnamon Roll Clássico","Com cobertura de cream cheese e amêndoas"], it:["Cinnamon Roll Classico","Con glassa di cream cheese e mandorle"], fr:["Cinnamon Roll Classique","Avec glaçage au cream cheese et amandes"], ru:["Классический Синнамон Ролл","С кремом из сливочного сыра и миндалём"] } },
+  { categoria:"Pattiserie", nombre:"New York Cheesecake", descripcion:"Con frutos rojos", precio:11000, disponible:true, emoji:"🍰", t:{ en:["New York Cheesecake","With red berries"], pt:["New York Cheesecake","Com frutas vermelhas"], it:["New York Cheesecake","Con frutti di bosco"], fr:["Cheesecake New York","Avec fruits rouges"], ru:["Нью-Йоркский Чизкейк","С красными ягодами"] } },
 ];
 
 const CAT_T: Record<string,Record<string,string>> = {
-  "Especiales": {en:"Specials",    pt:"Especiais",  it:"Speciali",   fr:"Spéciaux",  ru:"Акции"},
-  "Entradas":   {en:"Starters",    pt:"Entradas",   it:"Antipasti",  fr:"Entrées",   ru:"Закуски"},
-  "Principales":{en:"Main courses",pt:"Principais", it:"Principali", fr:"Plats",     ru:"Основные"},
-  "Bebidas":    {en:"Drinks",      pt:"Bebidas",    it:"Bevande",    fr:"Boissons",  ru:"Напитки"},
-  "Postres":    {en:"Desserts",    pt:"Sobremesas", it:"Dolci",      fr:"Desserts",  ru:"Десерты"},
+  "Cafetería":   {en:"Coffee bar",  pt:"Cafeteria",   it:"Caffetteria",  fr:"Café",          ru:"Кофейня"},
+  "Desayunos":   {en:"Breakfast",   pt:"Café da manhã",it:"Colazione",   fr:"Petit-déjeuner", ru:"Завтраки"},
+  "Ensaladas":   {en:"Salads",      pt:"Saladas",     it:"Insalate",     fr:"Salades",        ru:"Салаты"},
+  "Sandwiches":  {en:"Sandwiches",  pt:"Sanduíches",  it:"Panini",       fr:"Sandwichs",      ru:"Сэндвичи"},
+  "Pizzas":      {en:"Pizzas",      pt:"Pizzas",      it:"Pizze",        fr:"Pizzas",         ru:"Пиццы"},
+  "Pattiserie":  {en:"Pastry & Sweets",pt:"Doces",   it:"Pasticceria",  fr:"Pâtisserie",     ru:"Десерты"},
 };
 
 function formatPeso(n:number){return "$"+n.toLocaleString("es-AR");}
